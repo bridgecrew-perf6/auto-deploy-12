@@ -126,7 +126,7 @@ const main = async config => {
   // distTar => 项目 build 生成的目录压缩后的文件名
   const data = { ...config, distTar: `${config.dist}.tar.gz` };
 
-  if (!data.password) {
+  if (!data.ssh.password) {
     const answers = await inquirer.prompt([
       {
         type: "password",
@@ -141,7 +141,7 @@ const main = async config => {
       throw '请正确输入远程服务器ssh密码！';
     }
 
-    data.password = password;
+    data.ssh.password = password;
   }
 
   await build(data); // 打包
