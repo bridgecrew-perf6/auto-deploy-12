@@ -28,6 +28,9 @@ class MyClient extends Client {
     });
   }
 
+  /**
+   * 上传文件到服务器（如果ssh登录用户无`uploadFolder`目录rwx权限，文件默认上传到该用户家目录下）
+   */
   uploadFile() {
     return new Promise((resolve, reject) => {
       this.sftp((err, sftp) => {
@@ -55,6 +58,9 @@ class MyClient extends Client {
     });
   }
 
+  /**
+   * 服务器端shell（备份当前版本，解压并发布新版本）
+   */
   execServerShell() {
     return new Promise((resolve, reject) => {
       this.shell((err, stream) => {
@@ -99,8 +105,6 @@ class MyClient extends Client {
 
 /**
  * 打包本地项目，并生成对应的压缩包
- * @param {*} config
- * @returns
  */
 const build = config => {
   const { localFolder, buildCommand, distTar } = config;

@@ -1,10 +1,6 @@
-# auto-deploy
-前端项目自动化部署
+import main from "./index";
 
-## demo
-```javascript
-import main from './index.js';
-
+// demo start
 const config = {
   // ssh登录相关配置
   ssh: {
@@ -24,4 +20,3 @@ const config = {
 };
 
 main(config);
-```
